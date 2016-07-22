@@ -100,14 +100,12 @@ char *test_shift()
 
 char *all_tests() {
     mu_suite_start();
-
     MU_RUN_TEST(test_create);
     MU_RUN_TEST(test_push_pop);
     MU_RUN_TEST(test_unshift);
     MU_RUN_TEST(test_remove);
     MU_RUN_TEST(test_shift);
     MU_RUN_TEST(test_destroy);
-
     return NULL;
 }
 

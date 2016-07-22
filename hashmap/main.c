@@ -10,7 +10,8 @@
 
 #define KEY_MAX_LENGTH (256)
 #define KEY_PREFIX ("somekey")
-#define KEY_COUNT (1024*1024)
+//#define KEY_COUNT (1024*1024)
+#define KEY_COUNT (256)
 
 typedef struct data_struct_s
 {
