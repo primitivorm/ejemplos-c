@@ -79,6 +79,75 @@ struct foo12 {
     char c;
 };
 
+/** \brief Tipos de dato */
+typedef enum {
+    VALOR_NULO,    /**< Valor nulo */
+    VALOR_LOGICO,  /**< Valor logico */
+    VALOR_ENTERO,  /**< Valor entero */
+    VALOR_LITERAL, /**< Valor literal */
+    VALOR_DECIMAL, /**< Valor decimal */
+    VALOR_CADENA   /**< Valor cadena */
+} tipo_valor;
+
+/** \brief Valores del dato */
+typedef struct {
+    tipo_valor t; /**< Nodo tipo valor */
+    bool es_constante; /**< Para validar si es constante */
+    int num_linea;     /**< Numero de linea */
+    int num_columna;   /**< Numero de columna */
+    /** Contiene los valores del dato*/
+    union {
+        int logico;    /**< Logico */
+        long entero;   /**< Entero */
+        double decimal; /**< Decimal */
+        char* cadena;  /**< Cadena o literal */
+    } vval;
+} nodo_valor;
+
+typedef enum {
+    NODO_ASIGNACION,             /**< Nodo asignacion (variable = valor) */
+    NODO_OPERADOR,               /**< Nodo operador (+ - * / % < <= > >= == != && ||) */
+    NODO_IDENTIFICADOR,          /**< Nodo identificador */
+    NODO_LOGICO,                 /**< Nodo logico */
+    NODO_ENTERO,                 /**< Nodo entero */
+    NODO_DECIMAL,                /**< Nodo decimal */
+    NODO_CADENA,                 /**< Nodo cadena */
+    NODO_LITERAL,                /**< Nodo literal */
+    NODO_BLOQUE,                 /**< Nodo bloque */
+    NODO_SI,                     /**< Nodo si */
+    NODO_MIENTRAS,               /**< Nodo mientras */
+    NODO_REPETIR,                /**< Nodo repetir */
+    NODO_PORCADA,                /**< Nodo por cada */
+    NODO_FUNCION_PARAMETROS,       /**< Nodo parametros (suma(a, b))*/
+    NODO_FUNCION_ARGUMENTOS,     /**< Nodo argumentos de una funcion (funcion suma(1, b)) */
+    NODO_FUNCION_LLAMADA,        /**< Nodo llamada a una funcion (suma(2,3)) */
+    NODO_FUNCION_USUARIO,        /**< Nodo definicion de una funcion de usuario*/
+    NODO_RETORNO,                /**< Nodo retorno */
+    NODO_ROMPER,                 /**< Nodo romper */
+    NODO_CONTINUAR,              /**< Nodo continuar */
+    NODO_CONCATENAR,             /**< Nodo concatenar */
+    NODO_LISTA,                  /**< Nodo lista nueva */
+    NODO_LISTA_ASIGNAR_ELEMENTO, /**< Nodo asignar un nuevo valor a un elemento de la lista (lista[0] = 10)*/
+    NODO_LISTA_AGREGAR_ELEMENTO, /**< Nodo agregar elemento a una lista (1,2,3,X)*/
+    NODO_LISTA_OBTENER_ELEMENTO, /**< Nodo obtener un elemento de una lista (num = lista[0])*/
+    NODO_DICCIONARIO,            /**< Nodo diccionario nuevo */
+    NODO_DICC_ASIGNAR_ELEMENTO,  /**< Nodo un nuevo valor a un elemento del diccionario (dic["uno"] = valor)*/
+    NODO_DICC_AGREGAR_ELEMENTO,  /**< Nodo agregar un elemento al diccionario {"uno":1, "dos":2, "tres":3, "xxx": n} */
+    NODO_DICC_OBTENER_ELEMENTO,  /**< Nodo obtener un elemento del diccionario (valor = dic["uno"]) */
+    NODO_DICC_ELEMENTO,          /**< Nodo par de llave valor del diccionario (key : value) */
+    NODO_INCLUIR                 /**< Nodo para incluir codigo de otro archivo */
+} nodo_tipo;
+
+/** \brief Nodos en arbol abstacto de sintaxis (Abstract Syntax Tree).
+  *
+  * Todos los nodos son inicializados con un tipo de nodo */
+typedef struct ast {
+    nodo_tipo tipo;    /**< Tipo de nodo */
+    nodo_valor* valor; /**< Valor del nodo */
+    char* operador;    /**< operador en caso de que sea un nodo operador */
+    struct ast* izquierdo;     /**< Nodo izquierdo */
+    struct ast* derecho;     /**< Nodo derecho */
+} ast;
 
 main(int argc, char *argv)
 {
@@ -101,4 +170,6 @@ main(int argc, char *argv)
     printf("sizeof(struct foo10)   = %u\n", sizeof(struct foo10));
     printf("sizeof(struct foo11)   = %u\n", sizeof(struct foo11));
     printf("sizeof(struct foo12)   = %u\n", sizeof(struct foo12));
+    printf("sizeof(struct nodo_valor)   = %u\n", sizeof(nodo_valor));
+    printf("sizeof(struct ast)   = %u\n", sizeof(ast));
 }

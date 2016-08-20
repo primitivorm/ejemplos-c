@@ -62,11 +62,17 @@ int find_first_and_delete(int arg, struct list_head *head)
     return 0;
 }
 
-main()
+int main(int argc, char *argv[])
 {
     LIST_HEAD(fooHead);
 
-    add_node(10, &fooHead);
+    int i;
+    for (i = 0; i < 1000000; i++) {
+        printf("Agregando %i\n", i);
+        add_node(i, &fooHead);
+    }
+
+    /*add_node(10, &fooHead);
     add_node(20, &fooHead);
     add_node(25, &fooHead);
     add_node(30, &fooHead);
@@ -75,5 +81,6 @@ main()
     find_first_and_delete(20, &fooHead);
     display(&fooHead);
     delete_all(&fooHead);
-    display(&fooHead);
+    display(&fooHead);*/
+    return 0;
 }
