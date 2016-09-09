@@ -33,8 +33,16 @@ int main(int argc, char *argv[])
     list_print(lista);
     printf("shift value: %i\n", val);
     printf("%s\n", "test remove");
+    /*
     List_remove(lista, lista->first->next);
+    List_remove(lista, lista->last->prev);
     list_print(lista);
+    */
+    LIST_FOREACH(list, first, next, cur) {
+        List_remove(list, cur);
+    }
+    list_print(lista);
+
     int cnt = List_count(lista);
     printf("lista length: %i\n", cnt);
 
