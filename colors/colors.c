@@ -10,7 +10,7 @@
 #define KWHT  "\x1B[37m"
 
 int main()
-{
+{    
     printf("%sred\n", "\x1B[31m");
     printf("%sgreen\n", KGRN);
     printf("%syellow\n", KYEL);
