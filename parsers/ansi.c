@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <locale.h>
 
 int main()
 {
@@ -14,17 +15,26 @@ int main()
     printf("lenght of str: %i\n", l);
     */
     //unsigned char c;
-    char c;
-    int i;
+    
+    setlocale(LC_ALL, "es_MX");
+
+    unsigned char c;
+    unsigned int i;
     printf("\n%s\n", "unsigned========================================");
     for (i = 0; i < 256; i++)
     {
         printf("%i = %c\t", c, c);
         c = c+1;
     }    
-    char euro[] = "€";
+    char euro[] = "€¶";
     int l = strlen(euro);
     printf("strlen: %d\n", l);
+    printf("symbol: %s\n", euro);
+    printf("symbol: %c\n", (unsigned char) euro[0]);
+    printf("symbol: %u\n", (unsigned char) euro[1]);
+    printf("symbol: %u\n", (unsigned char) euro[2]);
+    printf("symbol: %u\n", (unsigned char) euro[3]);
+    printf("symbol: %u\n", (unsigned char) euro[4]);
     /*
     printf("\n%s\n", "signed========================================");
     for (i = -128; i < 128; ++i)
