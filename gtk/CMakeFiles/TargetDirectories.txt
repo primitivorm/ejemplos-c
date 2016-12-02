@@ -1,0 +1,3 @@
+/home/latino/src/ejemplos-c/gtk/CMakeFiles/rebuild_cache.dir
+/home/latino/src/ejemplos-c/gtk/CMakeFiles/edit_cache.dir
+/home/latino/src/ejemplos-c/gtk/CMakeFiles/example0.dir
