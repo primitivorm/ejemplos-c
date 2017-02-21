@@ -18,6 +18,10 @@ int main()
     
     setlocale(LC_ALL, "es_MX");
 
+    printf("hola\nmundo");
+    puts("hola\nmundo");
+    printf("hola\nmundo");
+
     unsigned char c;
     unsigned int i;
     printf("\n%s\n", "unsigned========================================");
