@@ -1,3 +1,5 @@
+#include <string.h>
+using namespace std;
 // PREC_TABLE matches order of Token enumeration
 struct Precedence
 {
