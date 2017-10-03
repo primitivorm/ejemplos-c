@@ -5,17 +5,7 @@ int Fibonacci(int);
 int main()
 {
    int n =24;
- 
-   /*scanf("%d",&n);*/
-   /*printf("Fibonacci series\n");*/
-   /*
-   for ( c = 1 ; c <= n ; c++ )
-   {
-      printf("%d\n", Fibonacci(i));
-      i++; 
-   }*/
    printf("%d\n", Fibonacci(n));
- 
    return 0;
 }
  
