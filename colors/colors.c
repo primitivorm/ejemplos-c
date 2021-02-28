@@ -11,7 +11,7 @@
 
 int main()
 {    
-    printf("%sred\n", "\x1B[31m");
+    printf("%sred\n", KRED);
     printf("%sgreen\n", KGRN);
     printf("%syellow\n", KYEL);
     printf("%sblue\n", KBLU);
